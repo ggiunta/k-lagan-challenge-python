@@ -1,1 +1,0 @@
-# k-lagan-challenge-python
