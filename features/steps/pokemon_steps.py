@@ -3,6 +3,8 @@ from model.pokemon_model import Pokemon
 from helpers.api_helper import APIHelper
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from page_objects.pokedex_page import *
+import time
 
 
 @given('I do the backend test')
@@ -10,7 +12,7 @@ def step_impl(context):
     api_helper = APIHelper()
     normal_pokemons_list_obj = []
 
-    pokemons_item = api_helper.get_pokemons('1').results
+    pokemons_item = api_helper.get_pokemons('17').results
 
     for pokemon in pokemons_item:
         print(pokemon.url)
@@ -43,15 +45,19 @@ def step_impl(context):
 
 @given('I do the frontend test')
 def step_impl(context):
-    print(context.be_normal_pokemons)
-    # print(str(context.be_normal_pokemons[0].name))
-    # print(str(context.be_normal_pokemons[1].types))
-    # print(str(context.be_normal_pokemons[2].weaknesses))
-    # print(str(context.be_normal_pokemons[3].types))
-    # print(str(context.be_normal_pokemons[4].name))
-    # print(str(context.be_normal_pokemons[5].types))
-    # print(str(context.be_normal_pokemons[6].weaknesses))
-
     driver = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME)
-    driver.get("https://www.pokemon.com/es/pokedex")
+    
+    pokedex_page = PokedexPage(driver)
+    pokedex_details_page = PokedexDetailsPage(driver)
+
+    for be_normal_pokemon in context.be_normal_pokemons:
+        pokedex_page.navigate_to()
+        time.sleep(3)
+        pokedex_page.search_for(be_normal_pokemon.name)
+        time.sleep(3)
+        pokedex_page.select_result('1')
+        time.sleep(3)
+        print(pokedex_details_page.get_name())
+        print(pokedex_details_page.get_weaknesses())
+    
     driver.close()
