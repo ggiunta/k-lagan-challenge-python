@@ -1,4 +1,15 @@
 [[package]]
+name = "appium-python-client"
+version = "1.0.2"
+description = "Python client for Appium"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+selenium = ">=3.14.1,<4"
+
+[[package]]
 name = "behave"
 version = "1.2.6"
 description = "behave is behaviour-driven development, Python style"
@@ -116,9 +127,12 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.2"
-content-hash = "b2665a680750daa280c42d9ab6a0fccd7455e91e5c69f65a045c96b92a975d36"
+content-hash = "d05cdb314e0bb00bbab834a6dc80d8de06c3b0699d962d2237f0df6dee592da6"
 
 [metadata.files]
+appium-python-client = [
+    {file = "Appium-Python-Client-1.0.2.tar.gz", hash = "sha256:44e2cf8040dc9d52ad2947046f221eddfbf4055b8c99615e3f1808b6aeb6a8ec"},
+]
 behave = [
     {file = "behave-1.2.6-py2.py3-none-any.whl", hash = "sha256:ebda1a6c9e5bfe95c5f9f0a2794e01c7098b3dde86c10a95d8621c5907ff6f1c"},
     {file = "behave-1.2.6.tar.gz", hash = "sha256:b9662327aa53294c1351b0a9c369093ccec1d21026f050c3bd9b3e5cccf81a86"},

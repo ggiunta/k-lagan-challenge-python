@@ -6,11 +6,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-A Linux based OS. MacOS was used to develop this
-Python 3.8.2 or higher
-Poetry https://python-poetry.org/docs/
-Selenium remote server installed and running. https://www.npmjs.com/package/selenium-standalone was used to develop/run the UI tests
-Google Chrome
+1. A Linux based OS. MacOS was used to develop this
+2. Python 3.8.2 or higher
+3. Poetry https://python-poetry.org/docs/
+4. Selenium remote server installed and running. https://www.npmjs.com/package/selenium-standalone was used to develop/run the UI tests
+5. Google Chrome
 
 ### Installing
 
