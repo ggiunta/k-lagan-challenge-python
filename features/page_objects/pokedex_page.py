@@ -8,15 +8,15 @@ class BasePage(object):
 
 class PokedexPage(BasePage):
     def navigate_to(self):
-        self.driver.get("https://www.pokemon.com/es/pokedex")
+        self.driver.get("https://www.pokemon.com/us/pokedex")
 
     def search_for(self, pokemon):
         element = self.driver.find_element_by_id('searchInput')
         element.send_keys(pokemon)
         element.send_keys(Keys.RETURN)
 
-    def select_result(self, index):
-        element = self.driver.find_element_by_xpath("//ul[@class='results']/li["+ index +"]")
+    def select_result(self, name):
+        element = self.driver.find_element_by_xpath("//ul[@class='results']/li[div/h5[text()='"+ name +"']]")
         element.click()
 
 class PokedexDetailsPage(BasePage):
