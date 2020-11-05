@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 3. Poetry https://python-poetry.org/docs/
 4. Selenium remote server installed and running. https://www.npmjs.com/package/selenium-standalone was used to develop/run the UI tests
 5. Google Chrome
+6. Appium server running for mobile tests
 
 ### Installing
 
@@ -28,13 +29,23 @@ poetry install
 
 ## Start Selenium server
 ```
-appium-standalone start
+selenium-standalone start
+```
+## Start Appium server
+```
+appium
 ```
 
 ## Running the tests using Behave
 
-1. Start Cypress local test runner
+1. Pokemon
 
 ```
-poetry run behave --no-capture --no-color
+poetry run behave --no-capture --no-color --include PokeAPI
+```
+
+2. Renfe 
+
+```
+poetry run behave --no-capture --no-color --include Renfe
 ```
